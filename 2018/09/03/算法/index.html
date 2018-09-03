@@ -1,0 +1,641 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构与算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="打开显示详情内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="yeweiyang96.github.io/2018/09/03/算法/index.html">
+<meta property="og:site_name" content="琲世札记">
+<meta property="og:description" content="打开显示详情内容">
+<meta property="og:updated_time" content="2018-09-03T07:10:56.617Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法">
+<meta name="twitter:description" content="打开显示详情内容">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="yeweiyang96.github.io/2018/09/03/算法/"/>
+
+
+  <title> 算法 | 琲世札记 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">琲世札记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-09-03T15:10:56+08:00" content="2018-09-03">
+              2018-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h2><p><a href="https://leetcode-cn.com/" target="_blank" rel="external">LeetCode（中国）官网</a></p>
+<p><a href="https://leetcode-cn.com/articles/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%9C%B0%E4%BD%BF%E7%94%A8-leetcode/" target="_blank" rel="external">如何高效地使用 LeetCode</a></p>
+<h2 id="牛客网："><a href="#牛客网：" class="headerlink" title="牛客网："></a>牛客网：</h2><p><a href="https://www.nowcoder.com" target="_blank" rel="external">牛客网首页</a></p>
+<blockquote>
+<h3 id="剑指offer编程题"><a href="#剑指offer编程题" class="headerlink" title="剑指offer编程题"></a><strong><a href="https://www.nowcoder.com/ta/coding-interviews" target="_blank" rel="external">剑指offer编程题</a></strong></h3></blockquote>
+<p><strong>分类解析：</strong></p>
+<ul>
+<li><a href="https://github.com/Snailclimb/Java-Guide/tree/master/数据结构与算法/算法题解析/剑指offer/（1）斐波那契数列问题和跳台阶问题.md" target="_blank" rel="external">（1）斐波那契数列问题和跳台阶问题</a></li>
+<li><a href="https://github.com/Snailclimb/Java-Guide/tree/master/数据结构与算法/算法题解析/剑指offer/（2）二维数组查找和替换空格问题.md" target="_blank" rel="external">（2）二维数组查找和替换空格问题</a></li>
+<li><a href="https://github.com/Snailclimb/Java-Guide/tree/master/数据结构与算法/算法题解析/剑指offer/（3）数值的整数次方和调整数组元素顺序.md" target="_blank" rel="external">（3）数值的整数次方和调整数组元素顺序</a></li>
+<li><a href="https://github.com/Snailclimb/Java-Guide/tree/master/数据结构与算法/算法题解析/剑指offer/（4）链表相关编程题.md" target="_blank" rel="external">（4）链表相关编程题</a></li>
+<li><a href="https://github.com/Snailclimb/Java-Guide/tree/master/数据结构与算法/算法题解析/剑指offer/（5）栈变队列和栈的压入、弹出序列.md" target="_blank" rel="external">（5）栈变队列和栈的压入、弹出序列</a></li>
+</ul>
+<blockquote>
+<h3 id="2017校招真题"><a href="#2017校招真题" class="headerlink" title="2017校招真题"></a><a href="https://www.nowcoder.com/ta/2017test" target="_blank" rel="external">2017校招真题</a></h3><h3 id="华为机试题"><a href="#华为机试题" class="headerlink" title="华为机试题"></a><a href="https://www.nowcoder.com/ta/huawei" target="_blank" rel="external">华为机试题</a></h3></blockquote>
+<h2 id="公司真题"><a href="#公司真题" class="headerlink" title="公司真题"></a>公司真题</h2><blockquote>
+<p><a href="https://www.nowcoder.com/test/6910869/summary" target="_blank" rel="external"> 网易2018校园招聘编程题真题集合</a></p>
+</blockquote>
+<p><strong>解析：</strong></p>
+<ul>
+<li><a href="https://github.com/Snailclimb/Java-Guide/tree/master/数据结构与算法/算法题解析/公司真题/网易2018校招编程题1-3.md" target="_blank" rel="external"> 网易2018校招编程题1-3</a></li>
+</ul>
+<blockquote>
+<p><a href="https://www.nowcoder.com/test/6291726/summary" target="_blank" rel="external"> 网易2018校招内推编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/5986669/summary" target="_blank" rel="external">2017年校招全国统一模拟笔试(第五场)编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/5507925/summary" target="_blank" rel="external">2017年校招全国统一模拟笔试(第四场)编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/5217106/summary" target="_blank" rel="external">2017年校招全国统一模拟笔试(第三场)编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/4546329/summary" target="_blank" rel="external">2017年校招全国统一模拟笔试(第二场)编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/4236887/summary" target="_blank" rel="external"> 2017年校招全国统一模拟笔试(第一场)编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/4998655/summary" target="_blank" rel="external">百度2017春招笔试真题编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/4575457/summary" target="_blank" rel="external">网易2017春招笔试真题编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/2811407/summary" target="_blank" rel="external">网易2017秋招编程题集合</a></p>
+<p><a href="https://www.nowcoder.com/test/2385858/summary" target="_blank" rel="external">网易有道2017内推编程题</a></p>
+<p><a href="https://www.nowcoder.com/test/3701760/summary" target="_blank" rel="external"> 滴滴出行2017秋招笔试真题-编程题汇总</a></p>
+<p><a href="https://www.nowcoder.com/test/1725829/summary" target="_blank" rel="external">腾讯2017暑期实习生编程题</a></p>
+<p><a href="https://www.nowcoder.com/test/1649301/summary" target="_blank" rel="external">今日头条2017客户端工程师实习生笔试题</a></p>
+<p><a href="https://www.nowcoder.com/test/1649268/summary" target="_blank" rel="external">今日头条2017后端工程师实习生笔试题</a></p>
+</blockquote>
+<h2 id="排序算法："><a href="#排序算法：" class="headerlink" title="排序算法："></a>排序算法：</h2><p><a href="http://www.cnblogs.com/chengxiao/p/6103002.html" target="_blank" rel="external">图解排序算法(一)之3种简单排序(选择，冒泡，直接插入)</a></p>
+<p><a href="https://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="external">图解排序算法(二)之希尔排序</a></p>
+<p><a href="http://www.cnblogs.com/chengxiao/p/6129630.html" target="_blank" rel="external">图解排序算法(三)之堆排序</a></p>
+<p><a href="http://www.cnblogs.com/chengxiao/p/6194356.html" target="_blank" rel="external">图解排序算法(四)之归并排序</a></p>
+<p><a href="http://www.cnblogs.com/chengxiao/p/6262208.html" target="_blank" rel="external">图解排序算法(五)之快速排序——三数取中法</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/" rel="tag">#数据结构与算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/设计模式/" rel="next" title="设计模式">
+                <i class="fa fa-chevron-left"></i> 设计模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/03/数据通信(RESTful、RPC、消息队列)/" rel="prev" title="数据通信(RESTful、RPC、消息队列)">
+                数据通信(RESTful、RPC、消息队列) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/banner.jpg"
+               alt="Haise" />
+          <p class="site-author-name" itemprop="name">Haise</p>
+          <p class="site-description motion-element" itemprop="description">赋有凌云之称，辨有雕龙之声</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode"><span class="nav-number">1.</span> <span class="nav-text">LeetCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#牛客网："><span class="nav-number">2.</span> <span class="nav-text">牛客网：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#剑指offer编程题"><span class="nav-number">2.1.</span> <span class="nav-text">剑指offer编程题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017校招真题"><span class="nav-number">2.2.</span> <span class="nav-text">2017校招真题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#华为机试题"><span class="nav-number">2.3.</span> <span class="nav-text">华为机试题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司真题"><span class="nav-number">3.</span> <span class="nav-text">公司真题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序算法："><span class="nav-number">4.</span> <span class="nav-text">排序算法：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haise</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

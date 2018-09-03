@@ -1,0 +1,699 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据存储," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="打开显示详情内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="yeweiyang96.github.io/2018/09/03/Redis/index.html">
+<meta property="og:site_name" content="琲世札记">
+<meta property="og:description" content="打开显示详情内容">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/18/162d7773080d4570?w=621&h=378&f=jpeg&s=45278">
+<meta property="og:updated_time" content="2018-09-03T07:10:56.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="打开显示详情内容">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/4/18/162d7773080d4570?w=621&h=378&f=jpeg&s=45278">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="yeweiyang96.github.io/2018/09/03/Redis/"/>
+
+
+  <title> Redis | 琲世札记 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">琲世札记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Redis
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-09-03T15:10:56+08:00" content="2018-09-03">
+              2018-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Redis 是一个使用 C 语言写成的，开源的 key-value 数据库。。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。目前，Vmware在资助着redis项目的开发和维护。</p>
+<blockquote>
+<h3 id="书籍推荐"><a href="#书籍推荐" class="headerlink" title="书籍推荐"></a>书籍推荐</h3></blockquote>
+<p><strong>《Redis实战》</strong></p>
+<p><strong>《Redis设计与实现》</strong></p>
+<blockquote>
+<h3 id="教程推荐"><a href="#教程推荐" class="headerlink" title="教程推荐"></a>教程推荐</h3></blockquote>
+<p><strong>redis官方中文版教程</strong>：<a href="http://www.redis.net.cn/tutorial/3501.html" target="_blank" rel="external">http://www.redis.net.cn/tutorial/3501.html</a></p>
+<p><strong>Redis 教程（菜鸟教程）</strong>：<a href="http://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="external">http://www.runoob.com/redis/redis-tutorial.html</a></p>
+<blockquote>
+<h3 id="常见问题总结"><a href="#常见问题总结" class="headerlink" title="常见问题总结"></a>常见问题总结</h3></blockquote>
+<p>就我个人而言，我觉得Redis的基本使用是我们每个Java程序员都应该会的。另外，如果需要面试的话，一些关于Redis的理论知识也需要好好的学习一下。学完Redis之后,对照着下面8点看看自己还有那些不足的地方，同时，下面7点也是面试中经常会问到的。另外，《Redis实战》、《Redis设计与实现》是我比较推荐的两本学习Redis的书籍。</p>
+<ol>
+<li><strong>Redis的两种持久化操作以及如何保障数据安全（快照和AOF）</strong></li>
+<li><strong>如何防止数据出错（Redis事务）</strong></li>
+<li><strong>如何使用流水线来提升性能</strong></li>
+<li><strong>Redis主从复制</strong></li>
+<li><strong>Redis集群的搭建</strong> </li>
+<li><strong>Redis的几种淘汰策略</strong></li>
+<li><strong>Redis集群宕机，数据迁移问题</strong></li>
+<li><strong>Redis缓存使用有很多，怎么解决缓存雪崩和缓存穿透？</strong></li>
+</ol>
+<h2 id="Redis常见问题分析与好文Mark"><a href="#Redis常见问题分析与好文Mark" class="headerlink" title="Redis常见问题分析与好文Mark"></a>Redis常见问题分析与好文Mark</h2><h3 id="什么是Redis？"><a href="#什么是Redis？" class="headerlink" title="什么是Redis？"></a>什么是Redis？</h3><blockquote>
+<p>Redis 是一个使用 C 语言写成的，开源的 key-value 数据库。。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。目前，Vmware在资助着redis项目的开发和维护。</p>
+</blockquote>
+<h3 id="Redis与Memcached的区别与比较"><a href="#Redis与Memcached的区别与比较" class="headerlink" title="Redis与Memcached的区别与比较"></a>Redis与Memcached的区别与比较</h3><p>1 、Redis不仅仅支持简单的k/v类型的数据，同时还提供list，set，zset，hash等数据结构的存储。memcache支持简单的数据类型，String。</p>
+<p>2 、Redis支持数据的备份，即master-slave模式的数据备份。</p>
+<p>3 、Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用,而Memecache把数据全部存在内存之中</p>
+<p>4、 redis的速度比memcached快很多</p>
+<p>5、Memcached是多线程，非阻塞IO复用的网络模型；Redis使用单线程的IO复用模型。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/18/162d7773080d4570?w=621&amp;h=378&amp;f=jpeg&amp;s=45278" alt="Redis与Memcached的区别与比较"></p>
+<p>如果想要更详细了解的话，可以查看慕课网上的这篇手记（非常推荐） <strong>：《脚踏两只船的困惑 - Memcached与Redis》</strong>：<a href="https://www.imooc.com/article/23549" target="_blank" rel="external">https://www.imooc.com/article/23549</a></p>
+<h3 id="Redis与Memcached的选择"><a href="#Redis与Memcached的选择" class="headerlink" title="Redis与Memcached的选择"></a>Redis与Memcached的选择</h3><p><strong>终极策略：</strong> 使用Redis的String类型做的事，都可以用Memcached替换，以此换取更好的性能提升； 除此以外，优先考虑Redis；</p>
+<h3 id="使用redis有哪些好处？"><a href="#使用redis有哪些好处？" class="headerlink" title="使用redis有哪些好处？"></a>使用redis有哪些好处？</h3><p>(1) <strong>速度快</strong>，因为数据存在内存中，类似于HashMap，HashMap的优势就是查找和操作的时间复杂度都是O(1) </p>
+<p>(2)<strong>支持丰富数据类型</strong>，支持string，list，set，sorted set，hash </p>
+<p>(3) <strong>支持事务</strong> ：redis对事务是部分支持的，如果是在入队时报错，那么都不会执行；在非入队时报错，那么成功的就会成功执行。详细了解请参考：《Redis事务介绍（四）》：<a href="https://blog.csdn.net/cuipeng0916/article/details/53698774" target="_blank" rel="external">https://blog.csdn.net/cuipeng0916/article/details/53698774</a></p>
+<p>redis监控：锁的介绍</p>
+<p>(4) <strong>丰富的特性</strong>：可用于缓存，消息，按key设置过期时间，过期后将会自动删除</p>
+<h3 id="Redis常见数据结构使用场景"><a href="#Redis常见数据结构使用场景" class="headerlink" title="Redis常见数据结构使用场景"></a>Redis常见数据结构使用场景</h3><h4 id="1-String"><a href="#1-String" class="headerlink" title="1. String"></a>1. String</h4><blockquote>
+<p><strong>常用命令:</strong>  set,get,decr,incr,mget 等。</p>
+</blockquote>
+<p>String数据结构是简单的key-value类型，value其实不仅可以是String，也可以是数字。<br>常规key-value缓存应用；<br>常规计数：微博数，粉丝数等。</p>
+<h4 id="2-Hash"><a href="#2-Hash" class="headerlink" title="2.Hash"></a>2.Hash</h4><blockquote>
+<p><strong>常用命令：</strong> hget,hset,hgetall 等。</p>
+</blockquote>
+<p>Hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。 比如我们可以Hash数据结构来存储用户信息，商品信息等等。</p>
+<p><strong>举个例子：</strong> 最近做的一个电商网站项目的首页就使用了redis的hash数据结构进行缓存，因为一个网站的首页访问量是最大的，所以通常网站的首页可以通过redis缓存来提高性能和并发量。我用<strong>jedis客户端</strong>来连接和操作我搭建的redis集群或者单机redis，利用jedis可以很容易的对redis进行相关操作，总的来说从搭一个简单的集群到实现redis作为缓存的整个步骤不难。感兴趣的可以看我昨天写的这篇文章：</p>
+<p><strong>《一文轻松搞懂redis集群原理及搭建与使用》：</strong> <a href="https://juejin.im/post/5ad54d76f265da23970759d3" target="_blank" rel="external">https://juejin.im/post/5ad54d76f265da23970759d3</a></p>
+<h4 id="3-List"><a href="#3-List" class="headerlink" title="3.List"></a>3.List</h4><blockquote>
+<p><strong>常用命令:</strong> lpush,rpush,lpop,rpop,lrange等</p>
+</blockquote>
+<p>list就是链表，Redis list的应用场景非常多，也是Redis最重要的数据结构之一，比如微博的关注列表，粉丝列表，最新消息排行等功能都可以用Redis的list结构来实现。</p>
+<p>Redis list的实现为一个双向链表，即可以支持反向查找和遍历，更方便操作，不过带来了部分额外的内存开销。</p>
+<h4 id="4-Set"><a href="#4-Set" class="headerlink" title="4.Set"></a>4.Set</h4><blockquote>
+<p><strong>常用命令：</strong><br>sadd,spop,smembers,sunion 等</p>
+</blockquote>
+<p>set对外提供的功能与list类似是一个列表的功能，特殊之处在于set是可以自动排重的。<br>当你需要存储一个列表数据，又不希望出现重复数据时，set是一个很好的选择，并且set提供了判断某个成员是否在一个set集合内的重要接口，这个也是list所不能提供的。</p>
+<p>在微博应用中，可以将一个用户所有的关注人存在一个集合中，将其所有粉丝存在一个集合。Redis可以非常方便的实现如共同关注、共同喜好、二度好友等功能。</p>
+<h4 id="5-Sorted-Set"><a href="#5-Sorted-Set" class="headerlink" title="5.Sorted Set"></a>5.Sorted Set</h4><blockquote>
+<p><strong>常用命令：</strong> zadd,zrange,zrem,zcard等</p>
+</blockquote>
+<p>和set相比，sorted set增加了一个权重参数score，使得集合中的元素能够按score进行有序排列。</p>
+<p><strong>举例：</strong> 在直播系统中，实时排行信息包含直播间在线用户列表，各种礼物排行榜，弹幕消息（可以理解为按消息维度的消息排行榜）等信息，适合使用Redis中的SortedSet结构进行存储。</p>
+<h3 id="MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据（redis有哪些数据淘汰策略？？？）"><a href="#MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据（redis有哪些数据淘汰策略？？？）" class="headerlink" title="MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据（redis有哪些数据淘汰策略？？？）"></a>MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据（redis有哪些数据淘汰策略？？？）</h3><p>　　　相关知识：redis 内存数据集大小上升到一定大小的时候，就会施行数据淘汰策略（回收策略）。redis 提供 6种数据淘汰策略：</p>
+<ol>
+<li><strong>volatile-lru</strong>：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰</li>
+<li><strong>volatile-ttl</strong>：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰</li>
+<li><strong>volatile-random</strong>：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰</li>
+<li><strong>allkeys-lru</strong>：从数据集（server.db[i].dict）中挑选最近最少使用的数据淘汰</li>
+<li><strong>allkeys-random</strong>：从数据集（server.db[i].dict）中任意选择数据淘汰</li>
+<li><strong>no-enviction</strong>（驱逐）：禁止驱逐数据</li>
+</ol>
+<h3 id="Redis的并发竞争问题如何解决"><a href="#Redis的并发竞争问题如何解决" class="headerlink" title="Redis的并发竞争问题如何解决?"></a>Redis的并发竞争问题如何解决?</h3><p>Redis为单进程单线程模式，采用队列模式将并发访问变为串行访问。Redis本身没有锁的概念，Redis对于多个客户端连接并不存在竞争，但是在Jedis客户端对Redis进行并发访问时会发生连接超时、数据转换错误、阻塞、客户端关闭连接等问题，这些问题均是由于客户端连接混乱造成。对此有2种解决方法：</p>
+<p>　1.客户端角度，为保证每个客户端间正常有序与Redis进行通信，对连接进行池化，同时对客户端读写Redis操作采用内部锁synchronized。<br>　<br>  2.服务器角度，利用setnx实现锁。</p>
+<p>　注：对于第一种，需要应用程序自己处理资源的同步，可以使用的方法比较通俗，可以使用synchronized也可以使用lock；第二种需要用到Redis的setnx命令，但是需要注意一些问题。</p>
+<h3 id="Redis回收进程如何工作的-Redis回收使用的是什么算法"><a href="#Redis回收进程如何工作的-Redis回收使用的是什么算法" class="headerlink" title="Redis回收进程如何工作的? Redis回收使用的是什么算法?"></a>Redis回收进程如何工作的? Redis回收使用的是什么算法?</h3><p><strong>Redis内存回收:LRU算法（写的很不错，推荐）</strong>：<a href="https://www.cnblogs.com/WJ5888/p/4371647.html" target="_blank" rel="external">https://www.cnblogs.com/WJ5888/p/4371647.html</a></p>
+<h3 id="Redis-大量数据插入"><a href="#Redis-大量数据插入" class="headerlink" title="Redis 大量数据插入"></a>Redis 大量数据插入</h3><p>官方文档给的解释：<a href="http://www.redis.cn/topics/mass-insert.html" target="_blank" rel="external">http://www.redis.cn/topics/mass-insert.html</a></p>
+<h3 id="Redis-分区的优势、不足以及分区类型"><a href="#Redis-分区的优势、不足以及分区类型" class="headerlink" title="Redis 分区的优势、不足以及分区类型"></a>Redis 分区的优势、不足以及分区类型</h3><p>官方文档提供的讲解：<a href="http://www.redis.net.cn/tutorial/3524.html" target="_blank" rel="external">http://www.redis.net.cn/tutorial/3524.html</a></p>
+<h3 id="Redis持久化数据和缓存怎么做扩容？"><a href="#Redis持久化数据和缓存怎么做扩容？" class="headerlink" title="Redis持久化数据和缓存怎么做扩容？"></a>Redis持久化数据和缓存怎么做扩容？</h3><p><strong>《redis的持久化和缓存机制》</strong> ：<a href="https://github.com/Snailclimb/Java-Guide/blob/master/数据存储/春夏秋冬又一春之Redis持久化.md" target="_blank" rel="external">https://github.com/Snailclimb/Java-Guide/blob/master/数据存储/春夏秋冬又一春之Redis持久化.md</a></p>
+<p>扩容的话可以通过redis集群实现，之前做项目的时候用过自己搭的redis集群<br>然后写了一篇关于redis集群的文章：<strong>《一文轻松搞懂redis集群原理及搭建与使用》</strong>：<a href="https://juejin.im/post/5ad54d76f265da23970759d3" target="_blank" rel="external">https://juejin.im/post/5ad54d76f265da23970759d3</a></p>
+<h3 id="Redis常见性能问题和解决方案"><a href="#Redis常见性能问题和解决方案" class="headerlink" title="Redis常见性能问题和解决方案:"></a>Redis常见性能问题和解决方案:</h3><ol>
+<li>Master最好不要做任何持久化工作，如RDB内存快照和AOF日志文件 </li>
+<li>如果数据比较重要，某个Slave开启AOF备份数据，策略设置为每秒同步一次 </li>
+<li>为了主从复制的速度和连接的稳定性，Master和Slave最好在同一个局域网内 </li>
+<li>尽量避免在压力很大的主库上增加从库</li>
+</ol>
+<h3 id="Redis与消息队列"><a href="#Redis与消息队列" class="headerlink" title="Redis与消息队列"></a>Redis与消息队列</h3><blockquote>
+<p>作者：翁伟<br>链接：<a href="https://www.zhihu.com/question/20795043/answer/345073457" target="_blank" rel="external">https://www.zhihu.com/question/20795043/answer/345073457</a></p>
+</blockquote>
+<p>不要使用redis去做消息队列，这不是redis的设计目标。但实在太多人使用redis去做去消息队列，redis的作者看不下去，另外基于redis的核心代码，另外实现了一个消息队列disque： antirez/disque:<a href="https://github.com/antirez/disque" target="_blank" rel="external">https://github.com/antirez/disque</a>部署、协议等方面都跟redis非常类似，并且支持集群，延迟消息等等。</p>
+<p>我在做网站过程接触比较多的还是使用redis做缓存，比如秒杀系统，首页缓存等等。</p>
+<h2 id="好文Mark"><a href="#好文Mark" class="headerlink" title="好文Mark"></a>好文Mark</h2><p><strong>非常非常推荐下面几篇文章。。。</strong></p>
+<p><strong>《Redis深入之道：原理解析、场景使用以及视频解读》</strong>：<a href="https://zhuanlan.zhihu.com/p/28073983" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/28073983</a>:<br>主要介绍了：Redis集群开源的方案、Redis协议简介及持久化Aof文件解析、Redis短连接性能优化等等内容，文章干货太大，容量很大，建议时间充裕可以看看。另外文章里面还提供了视频讲解，可以说是非常非常用心了。</p>
+<p><strong>《阿里云Redis混合存储典型场景：如何轻松搭建视频直播间系统》：</strong><a href="https://yq.aliyun.com/articles/582487?utm_content=m_46529" target="_blank" rel="external">https://yq.aliyun.com/articles/582487?utm_content=m_46529</a>:<br>主要介绍视频直播间系统，以及如何使用阿里云Redis混合存储实例方便快捷的构建大数据量，低延迟的视频直播间服务。还介绍到了我们之前提高过的redis的数据结构的使用场景</p>
+<p><strong>《美团在Redis上踩过的一些坑-5.redis cluster遇到的一些问》</strong>：<a href="http://carlosfu.iteye.com/blog/2254573" target="_blank" rel="external">http://carlosfu.iteye.com/blog/2254573</a>：主要介绍了redis集群的两个常见问题，然后分享了 一些关于redis集群不错的文章。</p>
+<p><strong>参考：</strong></p>
+<p><a href="https://www.cnblogs.com/Survivalist/p/8119891.html" target="_blank" rel="external">https://www.cnblogs.com/Survivalist/p/8119891.html</a></p>
+<p><a href="http://www.redis.net.cn/tutorial/3524.html" target="_blank" rel="external">http://www.redis.net.cn/tutorial/3524.html</a></p>
+<p><a href="https://redis.io/" target="_blank" rel="external">https://redis.io/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据存储/" rel="tag">#数据存储</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/数据结构/" rel="next" title="数据结构">
+                <i class="fa fa-chevron-left"></i> 数据结构
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/03/Spring学习与面试/" rel="prev" title="Spring学习与面试">
+                Spring学习与面试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/banner.jpg"
+               alt="Haise" />
+          <p class="site-author-name" itemprop="name">Haise</p>
+          <p class="site-description motion-element" itemprop="description">赋有凌云之称，辨有雕龙之声</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#书籍推荐"><span class="nav-number">1.</span> <span class="nav-text">书籍推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教程推荐"><span class="nav-number">2.</span> <span class="nav-text">教程推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题总结"><span class="nav-number">3.</span> <span class="nav-text">常见问题总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis常见问题分析与好文Mark"><span class="nav-number"></span> <span class="nav-text">Redis常见问题分析与好文Mark</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Redis？"><span class="nav-number">1.</span> <span class="nav-text">什么是Redis？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis与Memcached的区别与比较"><span class="nav-number">2.</span> <span class="nav-text">Redis与Memcached的区别与比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis与Memcached的选择"><span class="nav-number">3.</span> <span class="nav-text">Redis与Memcached的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用redis有哪些好处？"><span class="nav-number">4.</span> <span class="nav-text">使用redis有哪些好处？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis常见数据结构使用场景"><span class="nav-number">5.</span> <span class="nav-text">Redis常见数据结构使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-String"><span class="nav-number">5.1.</span> <span class="nav-text">1. String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Hash"><span class="nav-number">5.2.</span> <span class="nav-text">2.Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-List"><span class="nav-number">5.3.</span> <span class="nav-text">3.List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Set"><span class="nav-number">5.4.</span> <span class="nav-text">4.Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Sorted-Set"><span class="nav-number">5.5.</span> <span class="nav-text">5.Sorted Set</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据（redis有哪些数据淘汰策略？？？）"><span class="nav-number">6.</span> <span class="nav-text">MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据（redis有哪些数据淘汰策略？？？）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis的并发竞争问题如何解决"><span class="nav-number">7.</span> <span class="nav-text">Redis的并发竞争问题如何解决?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis回收进程如何工作的-Redis回收使用的是什么算法"><span class="nav-number">8.</span> <span class="nav-text">Redis回收进程如何工作的? Redis回收使用的是什么算法?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-大量数据插入"><span class="nav-number">9.</span> <span class="nav-text">Redis 大量数据插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-分区的优势、不足以及分区类型"><span class="nav-number">10.</span> <span class="nav-text">Redis 分区的优势、不足以及分区类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis持久化数据和缓存怎么做扩容？"><span class="nav-number">11.</span> <span class="nav-text">Redis持久化数据和缓存怎么做扩容？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis常见性能问题和解决方案"><span class="nav-number">12.</span> <span class="nav-text">Redis常见性能问题和解决方案:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis与消息队列"><span class="nav-number">13.</span> <span class="nav-text">Redis与消息队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好文Mark"><span class="nav-number"></span> <span class="nav-text">好文Mark</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haise</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
